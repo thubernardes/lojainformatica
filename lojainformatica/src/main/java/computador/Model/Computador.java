@@ -10,7 +10,7 @@ package computador.Model;
  * @author thubernardes
  */
 public class Computador {
-    private static String marca = "RenanPaiva";
+    private static String marca = "ArthurBernardes";
     
     private int CodPeca;
     private String processador;

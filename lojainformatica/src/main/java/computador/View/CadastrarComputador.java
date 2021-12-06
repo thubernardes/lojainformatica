@@ -6,6 +6,7 @@
 package computador.View;
 
 import computador.DAO.ComputadorDAO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -104,6 +105,8 @@ public class CadastrarComputador extends javax.swing.JFrame {
         hd = hd.trim().replace(".","").replace("-","");
         
         ComputadorDAO.salvar(processador, hd);
+        JOptionPane.showMessageDialog(this, "Salvo no banco de dados!");
+        
         //processdor
     }//GEN-LAST:event_txtSalvarActionPerformed
 

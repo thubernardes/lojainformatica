@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 public class ComputadorDAO {
     
-    public static String  url="jdbc:mysql://localhost:3307/lojainformatica" + "?useTimezone=true&serverTimezone=UTC&useSSL=false";
+    public static String  url="jdbc:mysql://localhost:3306/lojainformatica" + "?useTimezone=true&serverTimezone=UTC&useSSL=false";
     public static String login="root";
     public static String senha="";
     public static String DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -92,7 +92,7 @@ public static ArrayList<Computador> listarComputadores(){
       }
 
     } catch (Exception e) {
-      System.out.println("erro ao listar peças");
+      System.out.println("Erro ao listar peças");
       
     }finally{
         
@@ -110,7 +110,7 @@ public static ArrayList<Computador> listarComputadores(){
     return listaRetorno;
   }
 
-    public static boolean excluir(int CodPeca){
+    public static boolean excluir(String processador, String hd){
    
     Connection conexao = null;
     boolean retorno = false;
@@ -119,9 +119,9 @@ public static ArrayList<Computador> listarComputadores(){
       Class.forName("com.mysql.cj.jdbc.Driver");
       conexao = DriverManager.getConnection(url,login,senha);
 
-      PreparedStatement sql = conexao.prepareStatement("DELETE FROM computador WHERE CodPeca=?");
-      sql.setInt(1, CodPeca);
-
+      PreparedStatement sql = conexao.prepareStatement("DELETE FROM computador WHERE hd=?");
+      sql.setInt(1,1);
+      
      int linhasAfetadas =  sql.executeUpdate();
      
      if(linhasAfetadas>0){
@@ -131,7 +131,7 @@ public static ArrayList<Computador> listarComputadores(){
      }
 
     } catch (Exception e) {
-      System.out.println("erro ao exckuir peças");
+      System.out.println("Erro ao excluir peças");
       
     }finally{
         
@@ -144,6 +144,9 @@ public static ArrayList<Computador> listarComputadores(){
     }
     
     return retorno;
-  }
-    
+  } 
+
+    public static void excluir(int PROPERTIES) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
